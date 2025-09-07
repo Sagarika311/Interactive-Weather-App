@@ -13,7 +13,7 @@ SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, an
 
 ## 🔗 Live Demo
 
-👉 **[Click here to try SkyCast]([https://skycast-react.vercel.app](https://interactive-weather-app-psi.vercel.app/))**  
+👉 **[Click here to try SkyCast](https://interactive-weather-app-psi.vercel.app/)**  
 
 ---
 
@@ -50,19 +50,19 @@ SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, an
 
 ## 📸 Screenshots
 
-Current Weather:
+### Current Weather:
 
 ![Current](screenshots/Current.png)
 
-Hourly & Dialy Forecast:
+### Hourly & Dialy Forecast:
 
 ![Hourly & Daily](screenshots/Hourly&Daily.png)
 
-Weather Chart:
+### Weather Chart:
 
 ![Daily](screenshots/Chart.png) 
 
-Dark Mode:
+### Dark Mode:
 
 ![Chart](screenshots/Darkmode.png)
 
