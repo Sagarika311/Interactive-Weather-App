@@ -1,7 +1,7 @@
 # ☁️ Interactive Weather app SkyCast using React
 
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)  
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  
+[TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  
 ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  
