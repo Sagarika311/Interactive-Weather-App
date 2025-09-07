@@ -4,7 +4,7 @@
   <img src="public/logo.png" alt="SkyCast Logo" width="150"/>
 </p>
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  ![Status](https://img.shields.io/badge/Status-Active-success)  [![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/intearctive-weather-app)](https://interactive-weather-app-psi.vercel.app/) 
+![React](https://img.shields.io/badge/React-18-blue?logo=react)  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  ![Status](https://img.shields.io/badge/Status-Active-success)  [![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/intearctive-weather-app)]([https://interactive-weather-app-psi.vercel.app/](https://interactive-weather-app-psi.vercel.app/)) 
 
 A sleek, animated weather application built with **React**, **Framer Motion**, and **Chart.js**.  
 SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, and **dynamic backgrounds** that adapt to the weather conditions.
