@@ -6,12 +6,11 @@
 ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  
 ![Status](https://img.shields.io/badge/Status-Active-success)  
-[![Deploy with Vercel](https://vercelbadge.vercel.app/api/your-username/skycast-react)](https://skycast-react.vercel.app)  
+[![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/interactive-weather-app)](https://interactive-weather-app-psi.vercel.app/) 
 
 <p align="center">
   <img src="public/logo.png" alt="SkyCast Logo" width="120"/>
 </p>
-<h1 align="center">☁️ SkyCast React</h1>
 
 A sleek, animated weather application built with **React**, **Framer Motion**, and **Chart.js**.  
 SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, and **dynamic backgrounds** that adapt to the weather conditions.
@@ -57,9 +56,21 @@ SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, an
 
 ## 📸 Screenshots
 
-| Current Weather | Hourly & Dialy Forecast | Chart | Dark Mode |
-|-----------------|----------------|----------------|-------|
-| ![Current](screenshots/Current.png) | ![Hourly & Daily](screenshots/Hourly&Daily.png) | ![Daily](screenshots/Chart.png) | ![Chart](screenshots/Darkmode.png) |
+Current Weather:
+
+![Current](screenshots/Current.png)
+
+Hourly & Dialy Forecast:
+
+![Hourly & Daily](screenshots/Hourly&Daily.png)
+
+Weather Chart:
+
+![Daily](screenshots/Chart.png) 
+
+Dark Mode:
+
+![Chart](screenshots/Darkmode.png)
 
 ---
 
