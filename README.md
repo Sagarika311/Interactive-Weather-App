@@ -1,12 +1,6 @@
 # ☁️ Interactive Weather app SkyCast using React
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)  
-[TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  
-![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  
-![Status](https://img.shields.io/badge/Status-Active-success)  
-[![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/interactive-weather-app)](https://interactive-weather-app-psi.vercel.app/) 
+![React](https://img.shields.io/badge/React-18-blue?logo=react)  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  ![Status](https://img.shields.io/badge/Status-Active-success)  [![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/interactive-weather-app)](https://interactive-weather-app-psi.vercel.app/) 
 
 <p align="center">
   <img src="public/logo.png" alt="SkyCast Logo" width="120"/>
@@ -19,7 +13,7 @@ SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, an
 
 ## 🔗 Live Demo
 
-👉 **[Click here to try SkyCast](https://skycast-react.vercel.app)**  
+👉 **[Click here to try SkyCast]([https://skycast-react.vercel.app](https://interactive-weather-app-psi.vercel.app/))**  
 
 ---
 
