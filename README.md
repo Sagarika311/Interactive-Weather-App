@@ -1,10 +1,10 @@
 # ☁️ Interactive Weather app SkyCast using React
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  ![Status](https://img.shields.io/badge/Status-Active-success)  [![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/interactive-weather-app)](https://interactive-weather-app-psi.vercel.app/) 
-
 <p align="center">
-  <img src="public/logo.png" alt="SkyCast Logo" width="120"/>
+  <img src="public/logo.png" alt="SkyCast Logo" width="150"/>
 </p>
+
+![React](https://img.shields.io/badge/React-18-blue?logo=react)  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38BDF8?logo=tailwindcss)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-FF69B4?logo=framer)  ![Chart.js](https://img.shields.io/badge/Chart.js-4.0-orange?logo=chartdotjs)  ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)  ![Status](https://img.shields.io/badge/Status-Active-success)  [![Deploy with Vercel](https://vercelbadge.vercel.app/api/Sagarika311/interactive-weather-app)](https://interactive-weather-app-psi.vercel.app/) 
 
 A sleek, animated weather application built with **React**, **Framer Motion**, and **Chart.js**.  
 SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, and **dynamic backgrounds** that adapt to the weather conditions.
@@ -83,6 +83,7 @@ SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, an
 ## 🚀 Getting Started
 
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone https://github.com/Sagarika311/skycast-react.git
 cd skycast-react
@@ -129,5 +130,3 @@ Feel free to use, modify, and distribute it.
 * 🗺 [Nominatim](https://nominatim.org/) for geocoding & search
 
 ```
-"# Interactive-Weather-App" 
-"# Interactive-Weather-App" 
