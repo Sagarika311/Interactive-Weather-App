@@ -57,11 +57,9 @@ SkyCast provides **real-time weather updates**, **hourly & daily forecasts**, an
 
 ## 📸 Screenshots
 
-| Current Weather | Hourly Forecast | Daily Forecast | Chart |
+| Current Weather | Hourly & Dialy Forecast | Chart | Dark Mode |
 |-----------------|----------------|----------------|-------|
-| ![Current](screenshots/current.png) | ![Hourly](screenshots/hourly.png) | ![Daily](screenshots/daily.png) | ![Chart](screenshots/chart.png) |
-
-*(Add your screenshots inside `docs/screenshots/` and update paths.)*
+| ![Current](screenshots/Current.png) | ![Hourly & Daily](screenshots/Hourly&Daily.png) | ![Daily](screenshots/Chart.png) | ![Chart](screenshots/Darkmode.png) |
 
 ---
 
