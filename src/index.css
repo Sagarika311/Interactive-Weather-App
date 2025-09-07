@@ -1,0 +1,84 @@
+@tailwind base; 
+@tailwind components;
+@tailwind utilities;
+
+/* Theme variables for text and chart colors */
+:root {
+  --text-light: #111827; /* gray-900 */
+  --text-dark: #f9fafb;  /* gray-50 */
+}
+
+.light {
+  --chart-text: var(--text-light);
+}
+
+.dark {
+  --chart-text: var(--text-dark);
+  --bg-dark: #0f172a; /* slate-900 */
+  --card-dark: #1e293b; /* slate-800 */
+}
+
+/* Common UI components */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-xl font-semibold transition-all;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700;
+  }
+
+  .glass-card {
+    @apply bg-white/20 dark:bg-black/30 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50;
+  }
+}
+
+/* Animated gradient background for day/night fallback */
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, #014773, #82cfff, #f13187, #d04cd0);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Buttons */
+.btn {
+  @apply px-4 py-2 rounded-xl font-medium shadow-md transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-600 text-white;
+}
+
+.btn-glass {
+  @apply bg-white/20 dark:bg-black/40 backdrop-blur-md text-sm hover:scale-105;
+}
+
+/* Smooth weather background changes */
+.bg-weather {
+  transition: background 0.5s ease-in-out;
+}
+
+/* Smooth gradient background */
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, #89f7fe, #207af8, #f622ba, #a6c1ee);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+

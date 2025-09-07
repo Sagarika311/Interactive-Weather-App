@@ -1,0 +1,127 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #e957d5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glass card (consistent across app) */
+.glass-card {
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .glass-card {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Enhancements */
+header button {
+  transition: all 0.3s ease;
+}
+
+header button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.08);
+}
+.dark header button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"] {
+  padding-left: 2.5rem; /* space for icon */
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 10px rgba(66,153,225,0.5);
+}
+
+/* Search Icon */
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.current-temp {
+  display: inline-block;
+  padding: 1.2rem 2.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #89f7fe, #f3217f);
+  color: #111;
+  font-weight: bold;
+  animation: popIn 0.6s ease forwards;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.forecast-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.forecast-card p:first-child {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+canvas {
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.08);
+  padding: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
