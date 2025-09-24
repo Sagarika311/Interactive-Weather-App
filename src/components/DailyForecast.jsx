@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { weatherMapping } from "../utils/weatherMapping";
 
 function DailyForecast({ data, unit, convertTemp }) {
-  if (!data || !data.time || !data.temperature_2m_max || !data.temperature_2m_min || !data.weathercode)
+  if (!data || !data.time || !data.temperature_2m_max || !data.temperature_2m_min)
     return null;
 
   return (
@@ -12,7 +12,8 @@ function DailyForecast({ data, unit, convertTemp }) {
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
         {data.time.slice(0, 7).map((day, idx) => {
-          const weatherInfo = weatherMapping[data.weathercode[idx]] || {
+          const weatherCode = data.weathercode ? data.weathercode[idx] : null;
+          const weatherInfo = weatherMapping[weatherCode] || {
             icon: "☀️",
             label: "Clear",
           };
