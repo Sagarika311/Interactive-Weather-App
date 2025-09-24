@@ -25,8 +25,10 @@ function DailyForecast({ data, unit, convertTemp }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
               whileHover={{ scale: 1.07, y: -4 }}
-              className="min-h-[140px] p-4 rounded-2xl bg-white/60 dark:bg-black/40 shadow-md 
-              hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between backdrop-blur-md"
+              className="min-h-[140px] min-w-[120px] p-4 rounded-xl 
+              bg-white/70 dark:bg-black/40 shadow-md 
+              hover:shadow-lg hover:bg-white/60 dark:hover:bg-black/30 
+              transition-all duration-300 flex flex-col items-center justify-between"
               aria-label={`Weather on ${new Date(day).toLocaleDateString("en-US", {
                 weekday: "long",
               })}: High ${Math.round(convertTemp(data.temperature_2m_max[idx]))}°${unit}, 
@@ -38,7 +40,7 @@ function DailyForecast({ data, unit, convertTemp }) {
               </p>
 
               {/* Icon */}
-              <span className="text-2xl my-2">{weatherInfo.icon}</span>
+              <span className="text-2xl my-1">{weatherInfo.icon}</span>
 
               {/* Temps */}
               <div className="flex flex-col items-center gap-1">
