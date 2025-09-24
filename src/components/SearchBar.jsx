@@ -6,6 +6,7 @@ const SearchBar = ({ setCity, className = "" }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
   const wrapperRef = useRef(null);
+  const debounceRef = useRef(null);
 
   // Fetch live suggestions from Nominatim
   const fetchNominatimSuggestions = async (query) => {
@@ -22,28 +23,34 @@ const SearchBar = ({ setCity, className = "" }) => {
     }
   };
 
-  // Update suggestions based on input
+  // Update suggestions with debounce
   useEffect(() => {
-    const updateSuggestions = async () => {
+    if (!input.trim()) {
+      setSuggestions([]);
+      return;
+    }
+
+    // clear previous debounce
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+
+    debounceRef.current = setTimeout(async () => {
+      // Run preset filter (instant)
       const presetMatches = Object.keys(cityCoordinates).filter((cityName) =>
         cityName.toLowerCase().includes(input.toLowerCase())
       );
 
-      const liveMatches = await fetchNominatimSuggestions(input);
+      // Fetch live results in parallel
+      const [liveMatches] = await Promise.all([fetchNominatimSuggestions(input)]);
 
-      // Merge preset + live, remove duplicates
+      // Merge & dedupe
       const combined = [...new Set([...presetMatches, ...liveMatches])];
       setSuggestions(combined);
-    };
+    }, 400); // 400ms debounce
 
-    if (input.trim() !== "") {
-      updateSuggestions();
-    } else {
-      setSuggestions([]);
-    }
+    return () => clearTimeout(debounceRef.current);
   }, [input]);
 
-  // Handle outside click to close suggestions
+  // Handle outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
