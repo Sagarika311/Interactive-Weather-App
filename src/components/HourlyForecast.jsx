@@ -21,7 +21,7 @@ function HourlyForecast({ data, unit, convertTemp }) {
   };
 
   return (
-    <div className="glass-card relative p-6">
+    <div className="glass-card p-6">
       <h2 className="text-xl font-bold mb-4 text-center">Hourly Forecast</h2>
 
       <div className="relative">
@@ -43,23 +43,22 @@ function HourlyForecast({ data, unit, convertTemp }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05, duration: 0.3 }}
-                whileHover={{ scale: 1.08, y: -6 }}
-                className="snap-center min-w-[120px] h-[140px] rounded-2xl bg-white/60 dark:bg-black/40 shadow-md 
-                hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between p-4 backdrop-blur-md"
-                aria-label={`Weather at ${formatHour(time)}: ${Math.round(
-                  convertTemp(data.temperature_2m[idx])
-                )} degrees ${unit}, ${weatherInfo.label}`}
+                whileHover={{ scale: 1.07, y: -4 }}
+                className="snap-center min-w-[120px] h-[120px] p-4 rounded-xl 
+                  bg-white/70 dark:bg-black/40 shadow-md 
+                  hover:shadow-lg hover:bg-white/60 dark:hover:bg-black/30 
+                  transition-all duration-300 flex flex-col items-center justify-between"
               >
-                {/* Icon */}
-                <span className="text-2xl">{weatherInfo.icon}</span>
+                {/* Weather Icon */}
+                <span className="text-xl">{weatherInfo.icon}</span>
 
                 {/* Temp */}
-                <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
+                <p className="font-bold text-gray-900 dark:text-gray-100">
                   {Math.round(convertTemp(data.temperature_2m[idx]))}°{unit}
                 </p>
 
                 {/* Hour */}
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   {formatHour(time)}
                 </p>
               </motion.div>
