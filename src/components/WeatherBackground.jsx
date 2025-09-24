@@ -1,45 +1,32 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./WeatherBackground.css";
 import { weatherMapping } from "../utils/weatherMapping";
 
 function WeatherBackground({ code, motionEnabled = true }) {
   const videoRef = useRef(null);
+  const [background, setBackground] = useState("sunny");
 
-  // Map weather code → background type
-  const weatherInfo = weatherMapping[code] || { background: "sunny" };
-  const background = weatherInfo.background;
+  // Get background type from weatherMapping
+  useEffect(() => {
+    const weatherInfo = weatherMapping[code] || { background: "sunny" };
+    setBackground(weatherInfo.background);
+  }, [code]);
 
   const videoMap = {
     sunny: "/sunny.mp4",
     cloudy: "/cloudy.mp4",
     rainy: "/rainy.mp4",
     snow: "/snow.mp4",
-    thunderstorm: "/thunderstorm.mp4", // add this if you have it
+    thunderstorm: "/thunderstorm.mp4", // replace if missing
   };
-
-  useEffect(() => {
-    if (!motionEnabled) return;
-    const videoEl = videoRef.current;
-    if (!videoEl) return;
-
-    const src = videoMap[background];
-    if (!src) return;
-
-    if (videoEl.src !== window.location.origin + src) {
-      videoEl.src = src;
-      videoEl.load();
-      videoEl
-        .play()
-        .catch((err) => console.warn("Video autoplay blocked:", err));
-    }
-  }, [background, motionEnabled]);
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
       {motionEnabled && videoMap[background] ? (
         <video
+          key={background} // 🔑 Forces remount on change
           ref={videoRef}
-          className="weather-video w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+          className="weather-video fade-video"
           autoPlay
           loop
           muted
@@ -50,11 +37,11 @@ function WeatherBackground({ code, motionEnabled = true }) {
         </video>
       ) : (
         <>
-          {background === "sunny" && <div className="sunny-bg"></div>}
-          {background === "cloudy" && <div className="cloudy-bg"></div>}
-          {background === "rainy" && <div className="rainy-bg"></div>}
-          {background === "snow" && <div className="snow-bg"></div>}
-          {background === "thunderstorm" && <div className="rainy-bg"></div>}
+          {background === "sunny" && <div className="sunny-bg fade-video"></div>}
+          {background === "cloudy" && <div className="cloudy-bg fade-video"></div>}
+          {background === "rainy" && <div className="rainy-bg fade-video"></div>}
+          {background === "snow" && <div className="snow-bg fade-video"></div>}
+          {background === "thunderstorm" && <div className="rainy-bg fade-video"></div>}
         </>
       )}
 
