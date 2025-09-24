@@ -1,36 +1,94 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { weatherMapping } from "../utils/weatherMapping";
 
-function DailyForecast({ data, unit, convertTemp }) {
-  if (!data || !data.time || !data.temperature_2m_max || !data.temperature_2m_min) return null;
+function HourlyForecast({ data, unit, convertTemp }) {
+  const scrollRef = useRef(null);
+
+  if (!data || !data.time || !data.temperature_2m || !data.weathercode) return null;
+
+  const sliceCount = Math.min(
+    24,
+    data.time.length,
+    data.temperature_2m.length,
+    data.weathercode.length
+  );
+
+  const formatHour = (time) => {
+    const date = new Date(time);
+    let hours = date.getHours();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    return `${hours} ${ampm}`;
+  };
+
+  // auto-scroll to current hour on mount
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    const now = new Date();
+    const currentHour = now.getHours();
+
+    const idx = data.time.findIndex(
+      (t) => new Date(t).getHours() === currentHour
+    );
+
+    if (idx !== -1 && scrollRef.current.children[idx]) {
+      scrollRef.current.children[idx].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [data]);
 
   return (
-    <div className="glass-card p-6">
-      <h2 className="text-xl font-bold mb-4 text-center">7-Day Forecast</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-        {data.time.slice(0, 7).map((day, idx) => (
-          <motion.div
-            key={day}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1, duration: 0.4 }}
-            whileHover={{ scale: 1.07, y: -4 }}
-            className="p-4 rounded-xl bg-white/70 dark:bg-black/40 shadow hover:scale-105 transition-transform flex flex-col items-center hover:shadow-lg hover:bg-white/50 dark:hover:bg-black/40"
-          >
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {new Date(day).toLocaleDateString("en-US", { weekday: "short" })}
-            </p>
-            <p className="font-bold text-lg text-gray-900 dark:text-gray-100">
-              {Math.round(convertTemp(data.temperature_2m_max[idx]))}°{unit}
-            </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {Math.round(convertTemp(data.temperature_2m_min[idx]))}°{unit}
-            </p>
-          </motion.div>
-        ))}
+    <div className="glass-card relative p-6">
+      <h2 className="text-xl font-bold mb-4 text-center">Hourly Forecast</h2>
+
+      <div className="relative">
+        {/* left fade */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-gray-100/90 dark:from-black/70 to-transparent z-10" />
+        {/* right fade */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-gray-100/90 dark:from-black/70 to-transparent z-10" />
+
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth py-2 px-1 scrollbar-thin scrollbar-thumb-gray-400/40 dark:scrollbar-thumb-gray-600/40"
+        >
+          {data.time.slice(0, sliceCount).map((time, idx) => {
+            const weatherInfo = weatherMapping[data.weathercode[idx]] || {
+              icon: "☀️",
+              label: "Clear",
+            };
+
+            return (
+              <motion.div
+                key={time}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.05, duration: 0.3 }}
+                whileHover={{ scale: 1.08, y: -6 }}
+                className="snap-center min-w-[120px] h-[120px] rounded-2xl bg-white/60 dark:bg-black/40 shadow-md 
+                hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between p-3 backdrop-blur-md"
+                aria-label={`Weather at ${formatHour(time)}: ${Math.round(
+                  convertTemp(data.temperature_2m[idx])
+                )} degrees ${unit}, ${weatherInfo.label}`}
+              >
+                <span className="text-2xl">{weatherInfo.icon}</span>
+                <p className="font-bold text-gray-900 dark:text-gray-100 text-lg">
+                  {Math.round(convertTemp(data.temperature_2m[idx]))}°{unit}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {formatHour(time)}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 }
 
-export default DailyForecast;
+export default HourlyForecast;
