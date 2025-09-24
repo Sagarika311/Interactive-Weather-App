@@ -1,61 +1,60 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./WeatherBackground.css";
 import { weatherMapping } from "../utils/weatherMapping";
 
-function WeatherBackground({ type, motionEnabled = true }) {
+function WeatherBackground({ code, motionEnabled = true }) {
   const videoRef = useRef(null);
-  const [currentSrc, setCurrentSrc] = useState(null);
+
+  // Map weather code → background type
+  const weatherInfo = weatherMapping[code] || { background: "sunny" };
+  const background = weatherInfo.background;
 
   const videoMap = {
     sunny: "/sunny.mp4",
     cloudy: "/cloudy.mp4",
     rainy: "/rainy.mp4",
     snow: "/snow.mp4",
-    thunderstorm: "/rainy.mp4", // fallback for ⛈️, replace with /thunderstorm.mp4 if available
+    thunderstorm: "/thunderstorm.mp4", // add this if you have it
   };
 
   useEffect(() => {
     if (!motionEnabled) return;
-
     const videoEl = videoRef.current;
     if (!videoEl) return;
 
-    const src = videoMap[type] || null;
+    const src = videoMap[background];
     if (!src) return;
 
-    // Only update if the source actually changes
-    if (currentSrc !== src) {
-      setCurrentSrc(src);
+    if (videoEl.src !== window.location.origin + src) {
       videoEl.src = src;
       videoEl.load();
       videoEl
         .play()
         .catch((err) => console.warn("Video autoplay blocked:", err));
     }
-  }, [type, motionEnabled, currentSrc]);
+  }, [background, motionEnabled]);
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      {motionEnabled && videoMap[type] ? (
+      {motionEnabled && videoMap[background] ? (
         <video
           ref={videoRef}
-          key={type}
           className="weather-video w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
           autoPlay
           loop
           muted
           playsInline
         >
-          <source src={videoMap[type]} type="video/mp4" />
+          <source src={videoMap[background]} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       ) : (
         <>
-          {type === "sunny" && <div className="sunny-bg"></div>}
-          {type === "cloudy" && <div className="cloudy-bg"></div>}
-          {type === "rainy" && <div className="rainy-bg"></div>}
-          {type === "snow" && <div className="snow-bg"></div>}
-          {type === "thunderstorm" && <div className="rainy-bg"></div>}
+          {background === "sunny" && <div className="sunny-bg"></div>}
+          {background === "cloudy" && <div className="cloudy-bg"></div>}
+          {background === "rainy" && <div className="rainy-bg"></div>}
+          {background === "snow" && <div className="snow-bg"></div>}
+          {background === "thunderstorm" && <div className="rainy-bg"></div>}
         </>
       )}
 
