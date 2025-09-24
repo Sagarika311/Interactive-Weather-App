@@ -25,7 +25,7 @@ function DailyForecast({ data, unit, convertTemp }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
               whileHover={{ scale: 1.08, y: -6 }}
-              className="rounded-2xl bg-white/60 dark:bg-black/40 shadow-md 
+              className="aspect-square rounded-2xl bg-white/60 dark:bg-black/40 shadow-md 
               hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between p-4 backdrop-blur-md"
               aria-label={`Weather on ${new Date(day).toLocaleDateString("en-US", {
                 weekday: "long",
@@ -38,7 +38,7 @@ function DailyForecast({ data, unit, convertTemp }) {
               </p>
 
               {/* Weather icon */}
-              <span className="text-2xl my-2">{weatherInfo.icon}</span>
+              <span className="text-3xl my-1">{weatherInfo.icon}</span>
 
               {/* Temps */}
               <div className="flex flex-col items-center gap-1">
