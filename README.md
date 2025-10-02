@@ -129,4 +129,10 @@ Feel free to use, modify, and distribute it.
 * 🌤 [Open-Meteo](https://open-meteo.com/) for free weather data
 * 🗺 [Nominatim](https://nominatim.org/) for geocoding & search
 
-```
+---
+
+## 👩‍💻 Author
+
+**Sagarika Bhagat**
+GitHub: [Sagarika311](https://github.com/Sagarika311)
+
